@@ -1,6 +1,7 @@
 package com.example.consumerestapi.ui.home.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,13 +36,16 @@ import com.example.consumerestapi.ui.home.viewmodel.KontakUIState
 fun HomeScreen(
     kontakUIState: KontakUIState,
     retryAction: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+
 
 ) {
     when (kontakUIState) {
         is KontakUIState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
         is KontakUIState.Success -> KontakLayout(
             kontak = kontakUIState.kontak, modifier = modifier.fillMaxWidth(),
+            onDetailClick = {},
+            onDeleteClick = {}
 
             )
 
@@ -82,8 +86,9 @@ fun OnError(retryAction: () -> Unit, modifier: Modifier = Modifier) {
 @Composable
 fun KontakLayout(
     kontak: List<Kontak>,
-    modifier: Modifier = Modifier
-
+    modifier: Modifier = Modifier,
+    onDetailClick: (Kontak) -> Unit,
+    onDeleteClick: (Kontak) -> Unit = {}
 ) {
     LazyColumn(
         modifier = modifier,
@@ -95,7 +100,6 @@ fun KontakLayout(
                 kontak = kontak,
                 modifier = Modifier
                     .fillMaxWidth()
-
             )
         }
     }
