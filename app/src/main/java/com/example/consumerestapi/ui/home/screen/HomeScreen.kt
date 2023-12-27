@@ -33,7 +33,7 @@ import com.example.consumerestapi.model.Kontak
 import com.example.consumerestapi.ui.home.viewmodel.KontakUIState
 
 @Composable
-fun HomeScreen(
+fun HomeStatus(
     kontakUIState: KontakUIState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
