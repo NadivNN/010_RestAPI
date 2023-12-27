@@ -100,6 +100,7 @@ fun KontakLayout(
                 kontak = kontak,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .clickable { onDetailClick(kontak) },
             )
         }
     }
