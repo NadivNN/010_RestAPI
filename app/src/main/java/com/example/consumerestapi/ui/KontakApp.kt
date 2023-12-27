@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.Greeting
 import com.example.consumerestapi.R
+import com.example.consumerestapi.navigation.PengelolaHalaman
 import com.example.consumerestapi.ui.home.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,7 +39,7 @@ fun KontakApp(
                 .fillMaxSize()
                 .padding(it)
         ) {
-            Greeting(name = String())
+            PengelolaHalaman()
         }
     }
 }
